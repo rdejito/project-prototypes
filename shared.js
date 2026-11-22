@@ -82,10 +82,36 @@
     save();
   }
 
+  /* ---------------- role-based feature flags ---------------- */
+  // A view is visible to every role unless cfg.viewAccess restricts it.
+  // Controls can be restricted with data-roles="admin staff" in rendered markup.
+  function allowedFor(view) {
+    const allow = (cfg.viewAccess || {})[view];
+    return !allow || allow.indexOf(state.role) !== -1;
+  }
+  function can(roles) {
+    if (!roles) return true;
+    const list = Array.isArray(roles) ? roles : String(roles).split(/\s+/);
+    return list.indexOf(state.role) !== -1;
+  }
+  function firstAllowedView() {
+    const found = cfg.nav.find(n => allowedFor(n.id));
+    return found ? found.id : cfg.nav[0].id;
+  }
+  function syncAccess() {
+    const groups = {};
+    cfg.nav.forEach(n => { if (allowedFor(n.id)) groups[n.group] = true; });
+    document.querySelectorAll('[data-nav]').forEach(el => el.classList.toggle('role-hidden', !allowedFor(el.dataset.nav)));
+    document.querySelectorAll('[data-group]').forEach(el => el.classList.toggle('role-hidden', !groups[el.dataset.group]));
+  }
+  function applyFeatureFlags() {
+    document.querySelectorAll('[data-roles]').forEach(el => el.classList.toggle('role-hidden', !can((el.dataset.roles || '').split(/\s+/))));
+  }
+
   function buildShell() {
     const navHtml = cfg.nav.map((n, i) => {
       const prev = cfg.nav[i - 1];
-      const group = (!prev || prev.group !== n.group) ? '<div class="sidebar-label nav-group">' + esc(n.group) + '</div>' : '';
+      const group = (!prev || prev.group !== n.group) ? '<div class="sidebar-label nav-group" data-group="' + esc(n.group) + '">' + esc(n.group) + '</div>' : '';
       return group + '<button class="nav-link" data-action="nav" data-view="' + n.id + '" data-nav="' + n.id + '"><span class="nav-icon">' + icon(n.icon) + '</span><span>' + esc(n.label) + '</span><span class="nav-count" data-count="' + n.id + '">0</span></button>';
     }).join('');
     const roles = cfg.roles ? '<label class="role-picker">' + icon('shield') + '<select id="role-select" aria-label="Switch role">' + cfg.roles.map(r => '<option value="' + r + '">' + esc((cfg.roleLabels || {})[r] || r) + '</option>').join('') + '</select></label>' : '';
@@ -109,14 +135,14 @@
       const el = e.target.closest('[data-action]');
       if (!el) return;
       const a = el.dataset.action;
-      if (a === 'nav') return api.go(el.dataset.view);
+      if (a === 'nav') return allowedFor(el.dataset.view) ? api.go(el.dataset.view) : api.toast('That module is not available in this view.', 'error');
       if (a === 'toggle-sidebar') { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('show'); return; }
       if (a === 'close-sidebar') { document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('show'); return; }
       if (a === 'close-modal') return api.closeModal();
       if (a === 'reset-demo') {
         return api.modal('Reset demo data?', 'This restores the original seed data', '<p class="small muted">All changes made in this browser will be discarded.</p>', '<button class="btn btn-outline" data-action="close-modal">Cancel</button><button class="btn btn-danger-ghost" data-action="reset-demo-confirm">' + icon('reset') + ' Reset data</button>');
       }
-      if (a === 'reset-demo-confirm') { reset(); api.closeModal(); api.go(cfg.nav[0].id); api.toast('Demo data restored.'); return; }
+      if (a === 'reset-demo-confirm') { reset(); api.closeModal(); api.go(firstAllowedView()); api.toast('Demo data restored.'); return; }
       if (a === 'filter') { if (handlers[a]) handlers[a](el.dataset, el, e); return; }
       if (handlers[a]) handlers[a](el.dataset, el, e);
     });
@@ -131,7 +157,9 @@
       state.role = e.target.value;
       save();
       if (cfg.onRoleChange) cfg.onRoleChange(e.target.value);
-      api.refresh();
+      syncAccess();
+      if (!allowedFor(current)) api.go(firstAllowedView());
+      else api.refresh();
       api.toast('Switched to ' + e.target.options[e.target.selectedIndex].text + '.');
     });
     document.addEventListener('keydown', e => {
@@ -146,15 +174,18 @@
     buildShell();
     attach();
     if (state.role && config.roles) document.getElementById('role-select').value = state.role;
+    syncAccess();
     return api;
   };
   api.go = function (view) {
+    if (!allowedFor(view)) view = firstAllowedView();
     const def = cfg.views[view];
     if (!def) return;
     current = view;
     document.getElementById('page-title').textContent = def.title;
     document.getElementById('page-subtitle').textContent = def.subtitle || '';
     document.getElementById('content').innerHTML = def.render();
+    applyFeatureFlags();
     document.querySelectorAll('[data-nav]').forEach(el => el.classList.toggle('active', el.dataset.nav === view));
     document.getElementById('sidebar').classList.remove('open');
     document.querySelector('.sidebar-overlay').classList.remove('show');
@@ -193,7 +224,7 @@
   };
   api.log = api.activity;
 
-  Object.assign(api, { icon, esc, money, uid, today, stamp, addDays, daysSince, ageChip, badge, tabs, card, empty, notice });
+  Object.assign(api, { icon, esc, money, uid, today, stamp, addDays, daysSince, ageChip, badge, tabs, card, empty, notice, can, allowedFor, gate: (roles, html) => can(roles) ? html : '' });
   Object.defineProperty(api, 'state', { get() { return state; }, set(v) { state = v; } });
   api.save = save;
   api.reset = reset;

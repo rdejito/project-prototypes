@@ -46,11 +46,31 @@ App.modal(title, sub, body, footer, wide)
 App.toast(message, type)
 App.setCounts({navId: number})
 App.setProgress(percent, label)
+App.can('admin staff')  // true when the active role is in the list
+App.allowedFor(viewId)  // true when the active role may open the view
+App.gate('admin', html) // returns html only for the listed roles
 ```
 
 Helpers: `App.icon`, `App.esc`, `App.money`, `App.uid`, `App.today`, `App.stamp`,
 `App.addDays`, `App.daysSince`, `App.ageChip`, `App.badge`, `App.tabs`, `App.card`,
 `App.empty`, `App.notice`, `App.activity`.
+
+### Role-based feature flags
+
+The role picker in the top bar is a feature flag: selecting a role hides the
+modules and controls that role would not have, so each view behaves like a real
+user session. Configure it per prototype in `App.init({...})`:
+
+```js
+viewAccess: { studio: ['creator', 'admin'], analytics: ['creator', 'admin'] }
+```
+
+Views not listed in `viewAccess` are available to every role (their contents are
+still scoped by the prototype's own logic). Individual controls can be flagged
+with `data-roles="admin staff"` in rendered markup. If the active role loses
+access to the current view, the app returns to the first allowed view.
+Examples: QuizForge hides Creator studio/Analytics from participants; Central
+Receiving Hub hides Scan from requestors and Monitor from non-supervisors.
 
 Each prototype adds only three files of its own: `index.html` (shell references),
 `data.js` (seed data), and `app.js` (views + interactions), plus a `README.md`

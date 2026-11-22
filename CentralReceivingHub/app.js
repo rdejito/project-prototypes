@@ -254,6 +254,7 @@
   App.init({
     slug: 'crh', title: 'Central Receiving Hub', tagline: 'Receiving · Monitoring · Claiming', icon: 'box', accent: 'indigo',
     roles: ['mh', 'requestor', 'supervisor', 'admin'], roleLabels: ROLE_LABELS,
+    viewAccess: { scan: ['mh', 'admin'], monitor: ['mh', 'supervisor', 'admin'] },
     user: { name: me, meta: 'Operations · unified access', initials: 'AM' },
     progressLabel: 'Items claimed', seed: SEED,
     nav: [

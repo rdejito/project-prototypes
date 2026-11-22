@@ -261,6 +261,7 @@
   App.init({
     slug: 'quizforge', title: 'QuizForge', tagline: 'Quiz Creation & Assessment', icon: 'quiz', accent: 'violet',
     roles: ['admin', 'creator', 'participant'], roleLabels: { admin: 'Admin view', creator: 'Creator view', participant: 'Participant view' },
+    viewAccess: { studio: ['creator', 'admin'], analytics: ['creator', 'admin'] },
     user: { name: ME, meta: 'Quiz participant · demo account', initials: 'JD' },
     progressLabel: 'Quizzes graded', seed: SEED,
     nav: [

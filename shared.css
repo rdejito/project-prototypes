@@ -420,3 +420,6 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .hub-return span:last-child { display: none; }
   .hub-return { padding: 7px; }
 }
+
+/* ---------- Role-based feature flags ---------- */
+.role-hidden { display: none !important; }
