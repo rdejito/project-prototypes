@@ -1,7 +1,7 @@
 # Central Receiving Hub — Interactive Prototype
 
 A clickable front-end prototype of **Central Receiving Hub: An Automated Item Receiving, Monitoring,
-and Claiming System** (based on `../../MD/CentralReceivingHub.md`). It simulates the End User Cage workflow:
+and Claiming System** (based on the CentralReceivingHub proposal document). It simulates the End User Cage workflow:
 scan an arrival, review the record, notify automatically, monitor aging, and claim.
 
 ## How to run

@@ -1,7 +1,7 @@
 # QueueLess — Interactive Prototype
 
 A clickable front-end prototype of **QueueLess: A Virtual Queue Management System**
-(based on `../../MD/QueueLess_Project_Proposal.md`). Customers join queues remotely, track their position
+(based on the QueueLess Project Proposal proposal document). Customers join queues remotely, track their position
 and ETA, receive turn notices, and personnel call the next ticket on a live board.
 
 ## How to run

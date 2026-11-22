@@ -1,6 +1,6 @@
 # QuizForge — Interactive Prototype
 
-A clickable, front-end prototype of **QuizForge: A Web-Based Quiz Creation and Assessment Platform** (based on `../../MD/QuizForge.md`). It demonstrates the full loop: a creator builds and publishes a quiz, a participant takes it under a timer, and answers are auto-saved, graded, and analyzed.
+A clickable, front-end prototype of **QuizForge: A Web-Based Quiz Creation and Assessment Platform** (based on the QuizForge proposal document). It demonstrates the full loop: a creator builds and publishes a quiz, a participant takes it under a timer, and answers are auto-saved, graded, and analyzed.
 
 ## How to run
 

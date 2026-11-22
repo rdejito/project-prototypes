@@ -1,7 +1,7 @@
 # UniServe — Interactive Prototype
 
 A clickable front-end prototype of **UniServe: A Unified Role-Based Service Management System**
-(based on `../../MD/UniServe_Project_Proposal.md`). It demonstrates the core idea: **one system serving
+(based on the UniServe Project Proposal proposal document). It demonstrates the core idea: **one system serving
 both the people who run services and the people who use them**, with all 15 gathered requirements
 implemented across six modules.
 

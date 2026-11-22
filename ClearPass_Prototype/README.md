@@ -1,7 +1,7 @@
 # ClearPass — Interactive Prototype
 
 A clickable, front-end prototype of **ClearPass: A Student Clearance and Self-Service Status Hub**
-(based on `../../MD/ClearPass_Project_Proposal.md`). It demonstrates the core idea: **one checklist**
+(based on the ClearPass Project Proposal proposal document). It demonstrates the core idea: **one checklist**
 that shows exactly what is pending and what is done across six school touchpoints.
 
 ## How to run

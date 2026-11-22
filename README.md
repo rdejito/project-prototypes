@@ -1,8 +1,9 @@
 # Project Proposals — Prototype Set
 
-Clickable, front-end prototypes for every proposal (Markdown sources in `../MD/`,
-PDF copies in `../PDFs/`). Start at `index.html`
+Clickable, front-end prototypes for every proposal. Start at `index.html`
 in this folder (the hub), or open any prototype's `index.html` directly.
+The original proposal documents live in the parent workspace and are not part
+of this repository.
 
 No installation, build step, server, or internet connection is required. Each
 prototype persists its state in the browser's `localStorage`; use **Reset demo data**

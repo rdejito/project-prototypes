@@ -1,6 +1,6 @@
 # PULSE — Interactive Prototype
 
-A clickable, front-end prototype of **PULSE (Logistics Urgent Wall): An Automated Urgent Request Management and Monitoring System** (based on `../../MD/Pulse.md`). It centralizes urgent logistics requests, routes them to the right team, shows them on a live-style wall, and records every action in an audit trail.
+A clickable, front-end prototype of **PULSE (Logistics Urgent Wall): An Automated Urgent Request Management and Monitoring System** (based on the Pulse proposal document). It centralizes urgent logistics requests, routes them to the right team, shows them on a live-style wall, and records every action in an audit trail.
 
 ## How to run
 

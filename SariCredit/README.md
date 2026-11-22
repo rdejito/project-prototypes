@@ -1,6 +1,6 @@
 # SariCredit — Interactive Prototype
 
-A clickable, front-end prototype of **SariCredit: A Digital Utang Ledger for Sari-Sari Stores** (based on `../../MD/SariCredit.md`). It replaces the paper utang notebook with customer profiles, item entries, partial payments, automatic balances, reminders, reports, and local settings.
+A clickable, front-end prototype of **SariCredit: A Digital Utang Ledger for Sari-Sari Stores** (based on the SariCredit proposal document). It replaces the paper utang notebook with customer profiles, item entries, partial payments, automatic balances, reminders, reports, and local settings.
 
 ## How to run
 
