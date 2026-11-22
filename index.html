@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Prototypes — Hub</title>
+  <link rel="stylesheet" href="shared.css" />
+</head>
+<body>
+  <div style="max-width:1180px;margin:0 auto;padding:42px 22px 80px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+      <span class="brand-mark" style="width:46px;height:46px;border-radius:13px"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+      <div><h1 style="margin:0;font-size:26px;letter-spacing:-.6px">Software Design Prototypes</h1><p class="muted" style="margin:4px 0 0">Clickable demos for all project proposals · no installation needed</p></div>
+    </div>
+
+    <div class="notice info" style="margin:24px 0 20px"><span data-icon="info"></span><span>Open any card to launch its interactive prototype. Changes are saved in your browser; each prototype has a <strong>Reset demo data</strong> button in its sidebar.</span></div>
+
+    <h2 class="section-title">Derived concepts</h2>
+    <div class="hub-grid">
+      <a class="card hub-card" href="ClearPass_Prototype/index.html"><span class="tag">Concept D · Easiest</span><span class="module-icon tone-indigo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3 style="margin:0">ClearPass</h3><p>One checklist of what is pending across items, duties, services, quizzes, balances, and concerns.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="CampusKonek/index.html"><span class="tag">Concept A · Most impressive</span><span class="module-icon tone-sky">◈</span><h3 style="margin:0">CampusKonek</h3><p>QR scan, virtual queues with ETA, instant quiz grading, live help wall, and notifications in one student companion.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="ScholarGuard/index.html"><span class="tag">Concept B · Proof &amp; trust</span><span class="module-icon tone-teal">◈</span><h3 style="margin:0">ScholarGuard</h3><p>Timestamped, access-controlled records: verified claims, duty proof, fair tokens, quiz records, ledger, and audit trail.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="LearnLoop/index.html"><span class="tag">Concept C · Study-time focused</span><span class="module-icon tone-violet">◈</span><h3 style="margin:0">LearnLoop</h3><p>Nudges, study-space readiness, queue alerts, never-lost quiz work, clear balances, and self-routing help.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="UniServe/index.html"><span class="tag">Concept E · Staff + users</span><span class="module-icon tone-rose">◈</span><h3 style="margin:0">UniServe</h3><p>One role-based platform with scanning, customer ledger CRUD, quiz analytics, service desk, cleanliness, and requests.</p><span class="go">Open prototype →</span></a>
+    </div>
+
+    <h2 class="section-title">Source proposals</h2>
+    <div class="hub-grid">
+      <a class="card hub-card" href="CentralReceivingHub/index.html"><span class="tag">Item receiving</span><span class="module-icon tone-indigo">◈</span><h3 style="margin:0">Central Receiving Hub</h3><p>Scan items, review records, automatic reminders, claiming, monitoring, and controlled history.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="CleanClass/index.html"><span class="tag">Cleanliness</span><span class="module-icon tone-amber">◈</span><h3 style="margin:0">CleanClass</h3><p>Cleaning schedules, task submission, teacher monitoring, classroom records, and admin management.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="QueueLess/index.html"><span class="tag">Virtual queue</span><span class="module-icon tone-sky">◈</span><h3 style="margin:0">QueueLess</h3><p>Service directory, unique queue numbers, live positions and ETAs, turn notices, and activity reports.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="QuizForge/index.html"><span class="tag">Assessment</span><span class="module-icon tone-violet">◈</span><h3 style="margin:0">QuizForge</h3><p>Quiz creation, question types, timed attempts with auto-save, auto-grading, history, and analytics.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="SariCredit/index.html"><span class="tag">Credit ledger</span><span class="module-icon tone-rose">◈</span><h3 style="margin:0">SariCredit</h3><p>Customer profiles, utang entries, partial payments, auto balances, reminders, and monthly reports.</p><span class="go">Open prototype →</span></a>
+      <a class="card hub-card" href="Pulse/index.html"><span class="tag">Urgent requests</span><span class="module-icon tone-teal">◈</span><h3 style="margin:0">PULSE</h3><p>Request submission, routing, real-time visual wall, aging, forwarding, notifications, and audit history.</p><span class="go">Open prototype →</span></a>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('[data-icon]').forEach(function (el) {
+      el.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>';
+    });
+  </script>
+</body>
+</html>

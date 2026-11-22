@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClearPass — Student Clearance Hub (Prototype)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        <span class="brand-text">Clear<span>Pass</span><small>Student Clearance Hub</small></span>
+      </div>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-link" data-action="nav" data-view="dashboard" data-nav="dashboard">
+          <span class="nav-icon" data-icon="grid"></span><span>Overview</span>
+        </button>
+        <div class="sidebar-label nav-group">CHECKLIST MODULES</div>
+        <button class="nav-link" data-action="nav" data-view="items" data-nav="items">
+          <span class="nav-icon" data-icon="box"></span><span>Item Clearance</span><span class="nav-count" data-count="items">0</span>
+        </button>
+        <button class="nav-link" data-action="nav" data-view="duties" data-nav="duties">
+          <span class="nav-icon" data-icon="broom"></span><span>Duty Clearance</span><span class="nav-count" data-count="duties">0</span>
+        </button>
+        <button class="nav-link" data-action="nav" data-view="services" data-nav="services">
+          <span class="nav-icon" data-icon="ticket"></span><span>Service Clearance</span><span class="nav-count" data-count="services">0</span>
+        </button>
+        <button class="nav-link" data-action="nav" data-view="quizzes" data-nav="quizzes">
+          <span class="nav-icon" data-icon="quiz"></span><span>Quiz Clearance</span><span class="nav-count" data-count="quizzes">0</span>
+        </button>
+        <button class="nav-link" data-action="nav" data-view="balances" data-nav="balances">
+          <span class="nav-icon" data-icon="wallet"></span><span>Financial Clearance</span><span class="nav-count" data-count="balances">0</span>
+        </button>
+        <button class="nav-link" data-action="nav" data-view="concerns" data-nav="concerns">
+          <span class="nav-icon" data-icon="chat"></span><span>Concern Clearance</span><span class="nav-count" data-count="concerns">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="progress-mini">
+          <div class="progress-mini-head"><span>Clearance progress</span><strong id="side-percent">0%</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="side-progress"></div></div>
+        </div>
+        <button class="reset-btn" data-action="reset-demo">
+          <span data-icon="reset"></span> Reset demo data
+        </button>
+        <p class="prototype-note">Interactive prototype · v1.0</p>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" data-action="close-sidebar"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" data-action="toggle-sidebar" aria-label="Toggle navigation"><span data-icon="menu"></span></button>
+        <a class="btn btn-outline btn-sm hub-return" href="../index.html" title="Back to prototype hub"><span data-icon="chevron"></span><span>Back to hub</span></a>
+        <div class="topbar-title">
+          <h1 id="page-title">Overview</h1>
+          <p id="page-subtitle">Everything you still need to take care of, in one place.</p>
+        </div>
+        <div class="topbar-right">
+          <label class="role-picker">
+            <span data-icon="shield"></span>
+            <select id="role-select" aria-label="Switch role">
+              <option value="student">Student view</option>
+              <option value="staff">Staff view</option>
+              <option value="admin">Admin view</option>
+            </select>
+          </label>
+          <div class="user-chip">
+            <div class="avatar">JD</div>
+            <div class="user-meta"><strong>Juan Dela Cruz</strong><span>2024-00137 · BS IT</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content" id="content" aria-live="polite"></main>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="assertive"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
