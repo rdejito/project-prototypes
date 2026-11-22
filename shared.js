@@ -127,7 +127,12 @@
     });
     document.addEventListener('input', e => { if (inputs[e.target.id]) inputs[e.target.id](e.target.value, e.target); });
     document.addEventListener('change', e => {
-      if (e.target.id === 'role-select' && cfg.onRoleChange) { state.role = e.target.value; save(); cfg.onRoleChange(e.target.value); api.refresh(); api.toast('Switched to ' + e.target.options[e.target.selectedIndex].text + '.'); }
+      if (e.target.id !== 'role-select') return;
+      state.role = e.target.value;
+      save();
+      if (cfg.onRoleChange) cfg.onRoleChange(e.target.value);
+      api.refresh();
+      api.toast('Switched to ' + e.target.options[e.target.selectedIndex].text + '.');
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') { api.closeModal(); document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('show'); }
