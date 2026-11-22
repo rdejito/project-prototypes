@@ -100,9 +100,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 30px;
 }
-.topbar-title h1 { font-size: 19px; margin: 0; letter-spacing: -.3px; }
+.topbar-left { display: flex; align-items: center; gap: 16px; min-width: 0; flex: 1 1 auto; }
+.topbar-left .hub-return, .topbar-left .menu-btn { flex: 0 0 auto; }
+.topbar-title { min-width: 0; }
+.topbar-title h1 { font-size: 19px; margin: 0; letter-spacing: -.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topbar-title p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
-.topbar-right { display: flex; align-items: center; gap: 18px; }
+.topbar-right { display: flex; align-items: center; gap: 18px; flex: 0 0 auto; }
 .role-picker { display: flex; align-items: center; gap: 7px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); border-radius: 9px; padding: 6px 9px; }
 .role-picker .icon { width: 15px; height: 15px; }
 .role-picker select { border: 0; background: transparent; color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; outline: 0; }
@@ -335,7 +338,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .sidebar-overlay.show { display: block; position: fixed; inset: 0; background: rgba(17,24,39,.45); z-index: 35; }
   .main { margin-left: 0; }
   .menu-btn { display: inline-grid; }
-  .topbar { padding: 0 16px; height: auto; min-height: 70px; }
+  .topbar { padding: 0 16px; height: auto; min-height: 70px; gap: 10px; }
+  .topbar-left { gap: 10px; }
   .topbar-title p { display: none; }
   .user-meta { display: none; }
   .content { padding: 20px 16px 50px; }

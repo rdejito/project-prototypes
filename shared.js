@@ -123,9 +123,10 @@
       '<div class="sidebar-foot"><div class="progress-mini"><div class="progress-mini-head"><span>' + esc(cfg.progressLabel || 'Records overview') + '</span><strong id="side-percent">0%</strong></div><div class="progress-track"><div class="progress-fill" id="side-progress"></div></div></div>' +
       '<button class="reset-btn" data-action="reset-demo">' + icon('reset') + ' Reset demo data</button><p class="prototype-note">Interactive prototype · v1.0</p></div></aside>' +
       '<div class="sidebar-overlay" data-action="close-sidebar"></div><div class="main">' +
-      '<header class="topbar"><button class="icon-btn menu-btn" data-action="toggle-sidebar" aria-label="Toggle navigation">' + icon('menu') + '</button>' +
+      '<header class="topbar"><div class="topbar-left">' +
+      '<button class="icon-btn menu-btn" data-action="toggle-sidebar" aria-label="Toggle navigation">' + icon('menu') + '</button>' +
       '<a class="btn btn-outline btn-sm hub-return" href="../index.html" title="Back to prototype hub">' + icon('chevron') + '<span>Back to hub</span></a>' +
-      '<div class="topbar-title"><h1 id="page-title"></h1><p id="page-subtitle"></p></div><div class="topbar-right">' + roles +
+      '<div class="topbar-title"><h1 id="page-title"></h1><p id="page-subtitle"></p></div></div><div class="topbar-right">' + roles +
       '<div class="user-chip"><div class="avatar">' + esc(user.initials) + '</div><div class="user-meta"><strong>' + esc(user.name) + '</strong><span>' + esc(user.meta) + '</span></div></div></div></header>' +
       '<main class="content" id="content"></main></div></div>';
   }
