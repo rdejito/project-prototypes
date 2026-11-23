@@ -1,0 +1,33 @@
+/* DTS Attendance — prototype-only additions on top of shared.css */
+
+.pill {
+  display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px;
+  border-radius: 20px; font-size: 10.5px; font-weight: 700; white-space: nowrap;
+}
+.pill.ok      { background: var(--done-soft);   color: var(--done); }
+.pill.late    { background: var(--pending-soft);color: var(--pending); }
+.pill.pending { background: var(--info-soft);   color: var(--info); }
+.pill.absent  { background: var(--danger-soft); color: var(--danger); }
+.pill.excused { background: #f5f3ff;            color: #7c3aed; }
+.pill.missing { background: #f3f4f6;            color: var(--muted); }
+.pill.conflict{ background: var(--danger-soft); color: var(--danger); }
+.pill.neutral { background: #f3f4f6;            color: var(--muted); }
+
+.bar-mini { height: 7px; background: #eef0f4; border-radius: 20px; overflow: hidden; }
+.bar-mini > div { height: 100%; border-radius: 20px; background: var(--primary); transition: width .35s ease; }
+.bar-mini.risk > div { background: var(--danger); }
+.bar-mini.good > div { background: var(--done); }
+
+.kv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.kv-item { background: var(--bg); border-radius: 9px; padding: 10px 12px; }
+.kv-item small { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+.kv-item strong { font-size: 12.5px; }
+
+.source-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+.source-tag.school  { color: var(--info); }
+.source-tag.company { color: #7c3aed; }
+
+.alert-row td { background: #fffbeb; }
+.table td.nowrap, .table th.nowrap { white-space: nowrap; }
+
+.demo-note { font-size: 11px; color: var(--muted); margin: 10px 0 0; }
